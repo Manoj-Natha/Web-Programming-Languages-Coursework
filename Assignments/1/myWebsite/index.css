@@ -1,0 +1,44 @@
+.nav .active a { background:#d6d6c2!important }
+mark{
+	background:#d6d6c2;
+	font-weight: bold;
+}
+
+body{
+	font-family:sans-serif;
+	
+}
+
+
+.myList{
+	list-style-image: url(bullet.gif);
+}
+
+a:hover{
+	color:white;
+}
+
+.utd{
+	color:orange;
+	font-weight:bold;
+	
+}
+
+#contentArea{
+	background-color:#d6d6c2;
+}
+
+#navBar{
+	background-color:#1f1f14;
+}
+
+#socialMedia{
+	background-color:#668cff;
+}
+
+#myImg{
+    margin-top: 12px;
+	border:solid;
+	border-color:#1f1f14;
+}
+

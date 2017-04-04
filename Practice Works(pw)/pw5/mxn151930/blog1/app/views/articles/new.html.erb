@@ -1,0 +1,41 @@
+
+<%= form_for :article, url: articles_path do |f| %>
+  <% if @article.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@article.errors.count, "error") %> prohibited
+        this movie from being saved:
+      </h2>
+	  
+      <ul>
+        <% @article.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <p>
+    <%= f.label :Movie_title %><br>
+    <%= f.text_field :movie_title %>
+  </p>
+  
+  <p>
+    <%= f.label :year %><br>
+    <%= f.text_field :year %>
+  </p>
+ 
+ <p>
+    <%= f.label :imdb_rating %><br>
+    <%= f.text_field :rating %>
+  </p>
+  
+  <p>
+    <%= f.label :Description %><br>
+    <%= f.text_area :text %>
+  </p>
+ 
+  <p>
+    <%= f.submit "save" %>
+  </p>
+<% end %>
+<%= link_to 'Back', articles_path %>

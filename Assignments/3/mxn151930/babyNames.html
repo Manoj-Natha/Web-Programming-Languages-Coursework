@@ -1,0 +1,78 @@
+<html>
+<head>
+<title> Top 5 baby Names</title>
+<script>
+function babySearch() {
+		var str = document.getElementById("selectYear").value;
+				
+		
+		if (window.XMLHttpRequest) {
+            // code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            // code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+		
+		
+		
+		xmlhttp.onreadystatechange = function() {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                var result=xmlhttp.responseText;
+				
+				var info=result.split(" ");
+				var half_length = Math.ceil(info.length / 2);    
+
+				//document.getElementById("girlNames").innerHTML = info.slice(0,half_length-1);
+				//document.getElementById("boyNames").innerHTML = info.slice(half_length-1, info.length-1);
+				
+				var girlInfo=info.slice(0,half_length-1);
+				var boyInfo=info.slice(half_length-1,info.length-1);
+				
+				document.getElementById("girlNames").innerHTML = "<h3>Girl Names</h3>";
+				document.getElementById("girlNames").innerHTML += "<pre><strong>Name				Rank</strong></pre>";
+				
+				for(var i=0;i<girlInfo.length;i+=2)
+				{
+					document.getElementById("girlNames").innerHTML += "<pre>"+girlInfo[i]+"				"+girlInfo[i+1]+"</pre>";	
+				}
+					
+				document.getElementById("boyNames").innerHTML = "<h3>Boy Names</h3>";
+				document.getElementById("boyNames").innerHTML += "<pre><strong>Name				Rank</strong></pre>";
+				
+				for(var i=0;i<girlInfo.length;i+=2)
+				{
+					document.getElementById("boyNames").innerHTML += "<pre>"+boyInfo[i]+"				"+boyInfo[i+1]+"</pre>";	
+				}
+					
+
+            }
+        };
+        xmlhttp.open("GET","TopBabyNames.php?q="+str, true);
+        xmlhttp.send();
+}
+</script>
+</head>
+<body>
+<h1> Top 5 baby names</h1>
+<span>
+<form>
+<select name="year" id="selectYear">
+<option>2004</option>
+<option>2005</option>
+<option>2006</option>
+<option>2007</option>
+<option>2008</option>
+<option>2009</option>
+<option>2010</option>
+<option>2011</option>
+<option>2012</option>
+<option>2013</option>   
+</select>
+<input type="button" value="Search" onclick="babySearch()"/>
+</form>
+</span>
+<div id="boyNames"></div>
+<div id="girlNames"></div>
+</body>
+</html>

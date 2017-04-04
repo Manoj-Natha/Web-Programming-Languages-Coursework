@@ -1,0 +1,35 @@
+<div id="index_form">
+<h1>Listing movies</h1>
+ 
+<%= link_to 'New Movie', new_movie_path %> 
+<p></p>
+<table border='1'>
+  <tr>
+    <th></th>
+	<th>Movie Title</th>
+    <th>Year</th>
+	<th>IMDB Rating</th>
+	<th>Description</th>
+	<th colspan="3">Options</th>
+	
+  </tr>
+ 
+  <% @movies.each do |movie| %>
+    <tr>
+      <td><img src="/img/<%=movie.id%>.jpg" alt="/img/<%=movie.id%>.jpg" height="50" width="50"></td>
+	  <td><%= movie.movie_title %></td>
+      <td><%= movie.year %></td>
+	  <td><%= movie.imdb_rating %></td>
+	  <td><%= movie.description %></td>
+      <td><%= link_to 'Show', movie_path(movie) %></td>
+      <td><%= link_to 'Edit', edit_movie_path(movie) %></td>
+	  <td><%= link_to 'Delete', movie_path(movie), method: :delete,
+              data: { confirm: 'Are you sure?' }  %></td>
+	
+	</tr>
+  <% end %>
+</table>
+
+
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+</div>

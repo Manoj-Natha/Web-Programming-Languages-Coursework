@@ -1,0 +1,84 @@
+
+<div id="show_body">
+
+<div id="movie_details">
+
+<img src="/img/<%=@movie.id%>.jpg" alt="/img/<%=@movie.id%>.jpg" height="150" width="150">
+
+<p>
+  <strong>Movie Title:</strong>
+  <%= @movie.movie_title %>
+</p>
+ 
+<p>
+  <strong>Year:</strong>
+  <%= @movie.year %>
+</p>
+
+
+<p>
+  <strong>IMDB Rating:</strong>
+  <%= @movie.imdb_rating %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @movie.description %>
+</p>
+
+</div>
+
+
+<div id="review_info">
+<h2 id="review_info_h2">Reviews</h2>
+<% @movie.reviews.each do |review| %>
+  <p>
+    <strong>Reviewer:</strong>
+    <%= review.reviewer %>
+  </p>
+ 
+  <p>
+    <strong>Comment:</strong>
+    <%= review.comment %>
+  </p>
+  
+  <p>
+  <%= link_to 'Destroy Comment', [review.movie, review],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+</p>
+  
+<% end %>
+ 
+</div>
+
+
+
+<div id="add_review">
+<h2 id="add_review_h2">Add a review:</h2>
+
+
+<%= form_for([@movie, @movie.reviews.build]) do |f| %>
+
+
+  
+  <p>
+    <%= f.label :reviewer %><br>
+    <%= f.text_field :reviewer %>
+  </p>
+  
+  <p>
+    <%= f.label :comment %><br>
+    <%= f.text_area :comment, required:true %>
+  </p>
+  
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %> 
+ 
+<%= link_to 'Edit', edit_movie_path(@movie) %> |
+<%= link_to 'Back', movies_path %>
+</div>
+
+</div>

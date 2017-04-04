@@ -1,0 +1,101 @@
+// Place all the styles related to the movies controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+h1 {
+  font-size: 3em;
+  margin-bottom: 30px;
+  text-align: center;	
+  color: grey;
+}
+
+tr{
+  text-align: center;
+  margin-left: 20px;
+}
+
+
+th{
+  color: purple;
+}
+
+
+#show_body{
+background-color: grey;
+
+}
+
+#review_info{
+  text-align: center;
+  color: brown;
+}
+
+#add_review{
+  text-align: center;
+  color: brown;
+}
+
+
+#add_review_h2{
+  text-align: center;
+  color: green;
+}
+
+
+#review_info_h2{
+  text-align: center;
+  color: green;
+}
+
+
+
+#index_form{
+  background-color: #80e5ff;
+
+}
+
+#new_form{
+  background-color: #80e5ff;
+
+}
+
+#new_form_1{
+  margin-left: 40px;
+  color: brown;
+  }
+
+  
+#edit_form_1{
+  margin-left: 40px;
+  color: brown;
+}
+
+
+#edit_form{
+  background-color: #80e5ff;
+
+}
+
+
+#errors{
+text-color: red;
+}
+
+
+h2 {
+  font-size: 3em;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+
+#error_explanation{
+color: red;
+}
+
+#movie_details{
+  text-align: center;
+  color: brown;
+}
